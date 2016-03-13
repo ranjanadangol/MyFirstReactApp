@@ -13,15 +13,21 @@ import React, {
   View
 } from 'react-native';
 
+var Moment = require("moment");
 var DayItem = require("./src/day-item");
 
 var DAYS = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
 
 class MyFirstReactApp extends Component {
   fetchData() {
-    return DAYS.map(function(day){
-      return <DayItem day={day}/>
-    });
+    var daysItem = [];
+    for (var i = 0; i < 7; i++) {
+      var day = Moment().add(i, 'days').format('dddd');
+      daysItem.push(
+        <DayItem day = {day} daysUntil = {i}/>
+        )
+      }
+    return daysItem
   }
 
   render() {
@@ -30,7 +36,6 @@ class MyFirstReactApp extends Component {
         <Text style={styles.welcome}>
           Days of the Week
         </Text>
-
         {this.fetchData()}
       </View>
     );
