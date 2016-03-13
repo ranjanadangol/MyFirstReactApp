@@ -18,6 +18,12 @@ var DayItem = require("./src/day-item");
 var DAYS = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
 
 class MyFirstReactApp extends Component {
+  fetchData() {
+    return DAYS.map(function(day){
+      return <DayItem day={day}/>
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -25,7 +31,7 @@ class MyFirstReactApp extends Component {
           Days of the Week
         </Text>
 
-        {this.daysTest()}
+        {this.fetchData()}
       </View>
     );
   }
