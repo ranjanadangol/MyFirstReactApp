@@ -2,6 +2,8 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
+
+
 'use strict';
 import React, {
   AppRegistry,
@@ -11,20 +13,18 @@ import React, {
   View
 } from 'react-native';
 
+var DayItem = require("./src/day-item");
+
+var DAYS = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+
 class MyFirstReactApp extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Days of the Week
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <DayItem day={DAYS[0]}/>
       </View>
     );
   }
