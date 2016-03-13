@@ -24,11 +24,20 @@ class MyFirstReactApp extends Component {
         <Text style={styles.welcome}>
           Days of the Week
         </Text>
-        <DayItem day={DAYS[0]}/>
+
+        {this.daysTest()}
       </View>
     );
   }
 }
+
+var daysTest = function() {
+  return DAYS.map(function(day){
+    return <DayItem day = {day}/>
+  });
+};
+
+
 
 const styles = StyleSheet.create({
   container: {
